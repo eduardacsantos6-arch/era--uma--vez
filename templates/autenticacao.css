@@ -1,0 +1,363 @@
+/* ========================================
+   LOGIN E CADASTRO
+======================================== */
+
+.pagina-auth {
+    min-height: 100vh;
+
+    background-color: var(--creme);
+
+    display: flex;
+
+    align-items: stretch;
+}
+
+
+/* Estrutura dividida */
+
+.auth {
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 42% 58%;
+}
+
+
+/* ========================================
+   LADO ESQUERDO
+======================================== */
+
+.auth-apresentacao {
+    padding: 60px;
+
+    background-color: var(--azul);
+
+    color: var(--branco);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Círculos */
+
+.auth-apresentacao::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border: 1px solid rgba(199, 163, 90, 0.15);
+
+    border-radius: 50%;
+
+    top: -220px;
+    left: -220px;
+}
+
+.auth-apresentacao::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border: 1px solid rgba(199, 163, 90, 0.10);
+
+    border-radius: 50%;
+
+    bottom: -180px;
+    right: -150px;
+}
+
+
+/* Conteúdo acima dos círculos */
+
+.auth-apresentacao > * {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* Símbolo */
+
+.auth-simbolo {
+    color: var(--dourado);
+
+    font-size: 32px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Nome */
+
+.auth-apresentacao h1 {
+    margin-bottom: 8px;
+
+    color: var(--branco);
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 44px;
+
+    line-height: 1.2;
+}
+
+
+/* Filmes clássicos */
+
+.auth-apresentacao > span:not(.auth-simbolo) {
+    color: var(--dourado);
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+}
+
+
+/* Texto */
+
+.auth-apresentacao p {
+    max-width: 360px;
+
+    margin-top: 35px;
+
+    color: #d6d6d6;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   LADO DO FORMULÁRIO
+======================================== */
+
+.auth-formulario {
+    padding: 60px 9%;
+
+    background-color: var(--creme);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario-conteudo {
+    width: 100%;
+
+    max-width: 470px;
+}
+
+
+/* Título */
+
+.formulario-conteudo h2 {
+    margin-bottom: 10px;
+
+    color: var(--azul);
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 42px;
+
+    line-height: 1.2;
+}
+
+
+/* Descrição */
+
+.descricao-formulario {
+    margin-bottom: 35px;
+
+    color: var(--texto-claro);
+
+    font-size: 15px;
+}
+
+
+/* ========================================
+   CAMPOS
+======================================== */
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--azul);
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    background-color: var(--branco);
+
+    border: 1px solid #d6d0c5;
+
+    border-radius: 3px;
+
+    color: var(--texto);
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+/* Campo selecionado */
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: var(--dourado);
+
+    box-shadow:
+        0 0 0 3px rgba(199, 163, 90, 0.10);
+}
+
+
+/* Placeholder */
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #999;
+}
+
+
+/* ========================================
+   BOTÃO DO FORMULÁRIO
+======================================== */
+
+.botao-form {
+    width: 100%;
+
+    margin-top: 8px;
+
+    border: 1px solid var(--dourado);
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   LINKS
+======================================== */
+
+.alternativa {
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: var(--texto-claro);
+
+    font-size: 14px;
+}
+
+.alternativa a {
+    color: var(--azul);
+
+    font-weight: 600;
+}
+
+.alternativa a:hover {
+    color: var(--dourado);
+}
+
+
+/* Voltar */
+
+.voltar {
+    display: block;
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: var(--texto-claro);
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+.voltar:hover {
+    color: var(--azul);
+}
+
+
+/* ========================================
+   RESPONSIVO
+======================================== */
+
+@media (max-width: 900px) {
+
+    .auth {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-apresentacao {
+        min-height: 350px;
+
+        padding: 50px 8%;
+    }
+
+    .auth-apresentacao h1 {
+        font-size: 38px;
+    }
+
+    .auth-apresentacao p {
+        margin-top: 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .auth-apresentacao {
+        min-height: 300px;
+
+        padding: 40px 25px;
+    }
+
+    .auth-apresentacao h1 {
+        font-size: 34px;
+    }
+
+    .auth-formulario {
+        padding: 50px 25px;
+    }
+
+    .formulario-conteudo h2 {
+        font-size: 34px;
+    }
+}

@@ -1,0 +1,182 @@
+/* ========================================
+   TELA DE ENTRADA
+======================================== */
+
+.pagina-entrada {
+    min-height: 100vh;
+
+    background-color: var(--azul-escuro);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Círculo decorativo */
+
+.pagina-entrada::before {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    border: 1px solid rgba(199, 163, 90, 0.15);
+
+    border-radius: 50%;
+
+    top: -250px;
+    right: -180px;
+}
+
+.pagina-entrada::after {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border: 1px solid rgba(199, 163, 90, 0.10);
+
+    border-radius: 50%;
+
+    bottom: -220px;
+    left: -180px;
+}
+
+
+/* Conteúdo */
+
+.entrada {
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.entrada-conteudo {
+    width: 100%;
+
+    max-width: 700px;
+}
+
+
+/* Símbolo */
+
+.entrada-simbolo {
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: var(--dourado);
+
+    font-size: 32px;
+}
+
+
+/* Título */
+
+.entrada h1 {
+    margin-bottom: 20px;
+
+    color: var(--branco);
+
+    font-family: 'Cinzel', serif;
+
+    font-size: clamp(45px, 7vw, 75px);
+
+    line-height: 1.1;
+}
+
+
+/* Texto */
+
+.entrada p {
+    max-width: 540px;
+
+    margin: 0 auto 35px;
+
+    color: #d7d7d7;
+
+    font-size: 17px;
+}
+
+
+/* Botões */
+
+.entrada-botoes {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+/* Botão de contorno */
+
+.botao-contorno {
+    background-color: transparent;
+
+    color: var(--dourado);
+}
+
+.botao-contorno:hover {
+    background-color: var(--dourado);
+
+    color: var(--azul);
+}
+
+
+/* ========================================
+   RESPONSIVO
+======================================== */
+
+@media (max-width: 600px) {
+
+    .entrada {
+        padding: 40px 20px;
+    }
+
+    .entrada h1 {
+        font-size: 43px;
+    }
+
+    .entrada p {
+        font-size: 15px;
+    }
+
+    .entrada-botoes {
+        flex-direction: column;
+    }
+
+    .entrada-botoes .botao {
+        width: 100%;
+
+        max-width: 300px;
+
+        text-align: center;
+    }
+}

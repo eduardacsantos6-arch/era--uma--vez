@@ -1,0 +1,167 @@
+/* ========================================
+   CATÁLOGO DE FILMES
+======================================== */
+
+.catalogo {
+    min-height: calc(100vh - 82px);
+
+    padding: 90px 7%;
+
+    background-color: var(--creme);
+}
+
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.catalogo-cabecalho {
+    max-width: 750px;
+
+    margin-bottom: 50px;
+}
+
+.catalogo-cabecalho h1 {
+    margin-bottom: 15px;
+
+    color: var(--azul);
+
+    font-family: 'Cinzel', serif;
+
+    font-size: clamp(35px, 5vw, 55px);
+
+    line-height: 1.2;
+}
+
+.catalogo-cabecalho p {
+    color: var(--texto-claro);
+
+    font-size: 16px;
+}
+
+
+/* ========================================
+   GRID DOS FILMES
+======================================== */
+
+.filmes-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+/* ========================================
+   CARD
+======================================== */
+
+.filme-card {
+    overflow: hidden;
+
+    background-color: var(--branco);
+
+    border: 1px solid #ded8cc;
+
+    transition: 0.3s;
+}
+
+.filme-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 30px rgba(16, 26, 45, 0.10);
+}
+
+
+/* Imagem */
+
+.filme-card img {
+    display: block;
+
+    width: 100%;
+
+    height: 330px;
+
+    object-fit: cover;
+}
+
+
+/* Conteúdo */
+
+.filme-card-conteudo {
+    padding: 25px;
+}
+
+.filme-card-conteudo small {
+    color: var(--dourado);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.filme-card-conteudo h2 {
+    margin: 8px 0 10px;
+
+    color: var(--azul);
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 22px;
+
+    line-height: 1.3;
+}
+
+.filme-card-conteudo p {
+    margin-bottom: 20px;
+
+    color: var(--texto-claro);
+
+    font-size: 14px;
+}
+
+
+/* Link */
+
+.link-filme {
+    color: var(--azul);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.link-filme:hover {
+    color: var(--dourado);
+}
+
+
+/* ========================================
+   RESPONSIVO
+======================================== */
+
+@media (max-width: 900px) {
+
+    .catalogo {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .filmes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .filmes-grid {
+        grid-template-columns: 1fr;
+    }
+}
