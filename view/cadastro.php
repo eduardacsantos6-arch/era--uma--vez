@@ -1,14 +1,18 @@
+
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Criar conta | Era uma vez...</title>
 
-<link rel="stylesheet" href="templates/global.css">
-<link rel="stylesheet" href="templates/autenticacao.css">
+    <link rel="stylesheet" href="/templates/global.css">
+    <link rel="stylesheet" href="/templates/autenticacao.css">
 
 </head>
 
@@ -50,13 +54,23 @@
 
                 <p class="descricao-formulario">
                     Cadastre-se para começar sua viagem
-                    pelos clássicos.
+                    pelos clássicos que acompanharam sua infância.
                 </p>
 
 
-                <form action="#" method="POST">
+                <?php if (!empty($mensagem)): ?>
+
+                    <p class="mensagem-erro">
+                        <?= htmlspecialchars($mensagem) ?>
+                    </p>
+
+                <?php endif; ?>
+
+
+                <form action="cadastro.php" method="POST">
 
                     <div class="campo">
+
                         <label for="nome">
                             Nome
                         </label>
@@ -68,10 +82,12 @@
                             placeholder="Como podemos te chamar?"
                             required
                         >
+
                     </div>
 
 
                     <div class="campo">
+
                         <label for="email">
                             E-mail
                         </label>
@@ -83,10 +99,12 @@
                             placeholder="Digite seu e-mail"
                             required
                         >
+
                     </div>
 
 
                     <div class="campo">
+
                         <label for="senha">
                             Senha
                         </label>
@@ -98,10 +116,12 @@
                             placeholder="Crie uma senha"
                             required
                         >
+
                     </div>
 
 
                     <div class="campo">
+
                         <label for="confirmar-senha">
                             Confirmar senha
                         </label>
@@ -113,10 +133,14 @@
                             placeholder="Digite a senha novamente"
                             required
                         >
+
                     </div>
 
 
-                    <button type="submit" class="botao botao-form">
+                    <button
+                        type="submit"
+                        class="botao botao-form"
+                    >
                         Criar minha conta
                     </button>
 
@@ -124,13 +148,20 @@
 
 
                 <p class="alternativa">
+
                     Já possui uma conta?
+
                     <a href="login.php">
                         Entrar
                     </a>
+
                 </p>
 
-                <a href="index.php" class="voltar">
+
+                <a
+                    href="../index.php"
+                    class="voltar"
+                >
                     ← Voltar
                 </a>
 
@@ -141,4 +172,5 @@
     </main>
 
 </body>
+
 </html>

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Era uma vez... | Filmes Clássicos</title>
 
-<link rel="stylesheet" href="templates/global.css">
-<link rel="stylesheet" href="templates/entrada.css">
-
+    <link rel="stylesheet" href="/templates/global.css">
+    <link rel="stylesheet" href="/templates/entrada.css">
 
 </head>
 
@@ -36,11 +38,11 @@
 
             <div class="entrada-botoes">
 
-                <a href="login.php" class="botao">
+                <a href="view/login.php" class="botao">
                     Entrar
                 </a>
 
-                <a href="cadastro.php" class="botao botao-contorno">
+                <a href="view/cadastro.php" class="botao botao-contorno">
                     Criar minha conta
                 </a>
 
@@ -51,4 +53,5 @@
     </main>
 
 </body>
+
 </html>

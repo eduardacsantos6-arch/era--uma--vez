@@ -1,0 +1,17 @@
+{
+    "name": "era-uma-vez/filmes-classicos",
+    "description": "Catálogo de filmes clássicos desenvolvido em PHP",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Controller\\": "Controller/",
+            "Model\\": "Model/"
+        },
+        "files": [
+            "Config/configuration.php"
+        ]
+    },
+    "require": {
+        "php": ">=8.2"
+    }
+}

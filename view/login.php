@@ -1,15 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Entrar | Era uma vez...</title>
 
-<link rel="stylesheet" href="templates/global.css">
-<link rel="stylesheet" href="templates/autenticacao.css">
-
+    <link rel="stylesheet" href="/templates/global.css">
+    <link rel="stylesheet" href="/templates/autenticacao.css">
 
 </head>
 
@@ -36,7 +38,6 @@
 
         </section>
 
-
         <section class="auth-formulario">
 
             <div class="formulario-conteudo">
@@ -53,10 +54,10 @@
                     Acesse sua conta para explorar os filmes.
                 </p>
 
-
                 <form action="#" method="POST">
 
                     <div class="campo">
+
                         <label for="email">
                             E-mail
                         </label>
@@ -68,10 +69,11 @@
                             placeholder="Digite seu e-mail"
                             required
                         >
+
                     </div>
 
-
                     <div class="campo">
+
                         <label for="senha">
                             Senha
                         </label>
@@ -83,8 +85,8 @@
                             placeholder="Digite sua senha"
                             required
                         >
-                    </div>
 
+                    </div>
 
                     <button type="submit" class="botao botao-form">
                         Entrar
@@ -92,15 +94,17 @@
 
                 </form>
 
-
                 <p class="alternativa">
+
                     Ainda não possui uma conta?
+
                     <a href="cadastro.php">
                         Criar conta
                     </a>
+
                 </p>
 
-                <a href="index.php" class="voltar">
+                <a href="../index.php" class="voltar">
                     ← Voltar
                 </a>
 
