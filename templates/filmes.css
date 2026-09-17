@@ -1,42 +1,74 @@
 /* ========================================
-   CATÁLOGO DE FILMES
+   TOPO DA PÁGINA
 ======================================== */
 
-.catalogo {
-    min-height: calc(100vh - 82px);
+.pagina-topo {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 30px 50px;
+}
 
-    padding: 90px 7%;
+.pagina-topo .tag {
+    display: inline-block;
+    margin-bottom: 20px;
+}
 
-    background-color: var(--creme);
+.pagina-topo h1 {
+    margin: 0 0 20px;
+    color: var(--azul);
+    font-family: "Cinzel", serif;
+    font-size: 48px;
+    line-height: 1.15;
+}
+
+.pagina-topo h1 span {
+    color: var(--dourado);
+}
+
+.pagina-topo p {
+    max-width: 650px;
+    margin: 0;
+    color: var(--texto-claro);
+    font-size: 17px;
+    line-height: 1.7;
 }
 
 
 /* ========================================
-   CABEÇALHO
+   CATÁLOGO
 ======================================== */
 
-.catalogo-cabecalho {
-    max-width: 750px;
-
-    margin-bottom: 50px;
+.catalogo {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px 80px;
 }
 
-.catalogo-cabecalho h1 {
-    margin-bottom: 15px;
 
+/* ========================================
+   CABEÇALHO DO CATÁLOGO
+======================================== */
+
+.filtro-area {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--creme-escuro);
+}
+
+.filtro-area h2 {
+    margin: 0;
     color: var(--azul);
-
-    font-family: 'Cinzel', serif;
-
-    font-size: clamp(35px, 5vw, 55px);
-
-    line-height: 1.2;
+    font-family: "Cinzel", serif;
+    font-size: 25px;
 }
 
-.catalogo-cabecalho p {
+.filtro-area p {
+    margin: 0;
     color: var(--texto-claro);
-
-    font-size: 16px;
+    font-size: 14px;
 }
 
 
@@ -44,101 +76,75 @@
    GRID DOS FILMES
 ======================================== */
 
-.filmes-grid {
+.catalogo-cards {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
-    gap: 30px;
+    gap: 28px;
 }
 
 
 /* ========================================
-   CARD
+   CARD DO FILME
 ======================================== */
 
-.filme-card {
+.card {
     overflow: hidden;
-
     background-color: var(--branco);
-
-    border: 1px solid #ded8cc;
-
-    transition: 0.3s;
+    border: 1px solid var(--creme-escuro);
+    border-radius: 12px;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.filme-card:hover {
-    transform: translateY(-6px);
-
+.card:hover {
+    transform: translateY(-5px);
     box-shadow:
-        0 15px 30px rgba(16, 26, 45, 0.10);
+        0 12px 30px rgba(23, 36, 61, 0.10);
 }
 
 
-/* Imagem */
+/* ========================================
+   IMAGEM
+======================================== */
 
-.filme-card img {
+.card img {
     display: block;
-
     width: 100%;
-
     height: 330px;
-
-    object-fit: cover;
+    object-fit: fill;
+    background-color: var(--creme-escuro);
 }
 
+/* ========================================
+   CONTEÚDO DO CARD
+======================================== */
 
-/* Conteúdo */
-
-.filme-card-conteudo {
-    padding: 25px;
+.card-conteudo {
+    padding: 22px;
 }
 
-.filme-card-conteudo small {
+.card-conteudo > span {
     color: var(--dourado);
-
     font-size: 12px;
-
     font-weight: 600;
-
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
-.filme-card-conteudo h2 {
-    margin: 8px 0 10px;
-
+.card-conteudo h3 {
+    margin: 10px 0 12px;
     color: var(--azul);
-
-    font-family: 'Cinzel', serif;
-
-    font-size: 22px;
-
+    font-family: "Cinzel", serif;
+    font-size: 20px;
     line-height: 1.3;
 }
 
-.filme-card-conteudo p {
-    margin-bottom: 20px;
-
+.card-conteudo p {
+    margin: 0;
     color: var(--texto-claro);
-
     font-size: 14px;
-}
-
-
-/* Link */
-
-.link-filme {
-    color: var(--azul);
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    transition: 0.3s;
-}
-
-.link-filme:hover {
-    color: var(--dourado);
+    line-height: 1.6;
 }
 
 
@@ -148,20 +154,43 @@
 
 @media (max-width: 900px) {
 
-    .catalogo {
-        padding-left: 5%;
-        padding-right: 5%;
+    .catalogo-cards {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .filmes-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .pagina-topo h1 {
+        font-size: 40px;
     }
 }
 
 
 @media (max-width: 600px) {
 
-    .filmes-grid {
+    .pagina-topo {
+        padding: 60px 20px 40px;
+    }
+
+    .pagina-topo h1 {
+        font-size: 32px;
+    }
+
+    .catalogo {
+        padding: 0 20px 60px;
+    }
+
+    .filtro-area {
+        display: block;
+    }
+
+    .filtro-area p {
+        margin-top: 8px;
+    }
+
+    .catalogo-cards {
         grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 300px;
     }
 }

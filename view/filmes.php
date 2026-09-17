@@ -5,6 +5,7 @@ session_start();
 require_once "../vendor/autoload.php";
 
 use Controller\UserController;
+use Controller\MovieController;
 
 $userController = new UserController();
 
@@ -13,81 +14,9 @@ if (!$userController->isLoggedIn()) {
     exit;
 }
 
-$filmes = [
+$movieController = new MovieController();
 
-    1 => [
-        "titulo" => "Branca de Neve e os Sete Anões",
-        "ano" => 1937,
-        "categoria" => "Princesas",
-        "imagem" => "../img/branca-neve.jpg",
-        "descricao" => "Uma jovem princesa precisa fugir da rainha má e encontra abrigo junto de sete anões."
-    ],
-
-    2 => [
-        "titulo" => "Pinóquio",
-        "ano" => 1940,
-        "categoria" => "Aventura",
-        "imagem" => "../img/pinocchio.jpg",
-        "descricao" => "Um boneco de madeira sonha em se tornar um menino de verdade."
-    ],
-
-    3 => [
-        "titulo" => "Cinderela",
-        "ano" => 1950,
-        "categoria" => "Princesas",
-        "imagem" => "../img/cinderela.jpg",
-        "descricao" => "Uma jovem maltratada pela própria família encontra uma oportunidade para mudar sua história."
-    ],
-
-    4 => [
-        "titulo" => "Peter Pan",
-        "ano" => 1953,
-        "categoria" => "Aventura",
-        "imagem" => "../img/peter-pan.jpg",
-        "descricao" => "Peter Pan leva Wendy e seus irmãos para uma aventura na Terra do Nunca."
-    ],
-
-    5 => [
-        "titulo" => "A Bela Adormecida",
-        "ano" => 1959,
-        "categoria" => "Princesas",
-        "imagem" => "../img/bela-adormecida.jpg",
-        "descricao" => "A princesa Aurora é envolvida por uma maldição que muda completamente seu destino."
-    ],
-
-    6 => [
-        "titulo" => "A Pequena Sereia",
-        "ano" => 1989,
-        "categoria" => "Princesas",
-        "imagem" => "../img/pequena-sereia.jpg",
-        "descricao" => "Ariel sonha em conhecer o mundo humano e decide explorar o desconhecido."
-    ],
-
-    7 => [
-        "titulo" => "A Bela e a Fera",
-        "ano" => 1991,
-        "categoria" => "Fantasia",
-        "imagem" => "../img/bela-e-a-fera.jpg",
-        "descricao" => "Belle acaba vivendo em um castelo encantado e conhece uma fera que esconde uma história."
-    ],
-
-    8 => [
-        "titulo" => "Aladdin",
-        "ano" => 1992,
-        "categoria" => "Aventura",
-        "imagem" => "../img/aladdin.jpg",
-        "descricao" => "Um jovem encontra uma lâmpada mágica e descobre que sua vida pode mudar completamente."
-    ],
-
-    9 => [
-        "titulo" => "O Rei Leão",
-        "ano" => 1994,
-        "categoria" => "Animais",
-        "imagem" => "../img/rei-leao.jpg",
-        "descricao" => "Simba precisa enfrentar desafios e descobrir seu lugar no ciclo da vida."
-    ]
-
-];
+$filmes = $movieController->getAllMovies();
 
 ?>
 
@@ -193,34 +122,34 @@ $filmes = [
 
             <div class="cards catalogo-cards">
 
-                <?php foreach ($filmes as $filme): ?>
+               <?php foreach ($filmes as $filme): ?>
 
-                    <article class="card">
+    <article class="card">
 
-                        <img
-                            src="<?= $filme["imagem"] ?>"
-                            alt="<?= htmlspecialchars($filme["titulo"]) ?>"
-                        >
+        <img
+            src="../img/<?= htmlspecialchars($filme["image"]) ?>"
+            alt="<?= htmlspecialchars($filme["title"]) ?>"
+        >
 
-                        <div class="card-conteudo">
+        <div class="card-conteudo">
 
-                            <span>
-                                <?= $filme["ano"] ?> • <?= $filme["categoria"] ?>
-                            </span>
+            <span>
+                <?= $filme["year"] ?> • <?= htmlspecialchars($filme["category"]) ?>
+            </span>
 
-                            <h3>
-                                <?= htmlspecialchars($filme["titulo"]) ?>
-                            </h3>
+            <h3>
+                <?= htmlspecialchars($filme["title"]) ?>
+            </h3>
 
-                            <p>
-                                <?= htmlspecialchars($filme["descricao"]) ?>
-                            </p>
+            <p>
+                <?= htmlspecialchars($filme["description"]) ?>
+            </p>
 
-                        </div>
+        </div>
 
-                    </article>
+    </article>
 
-                <?php endforeach; ?>
+<?php endforeach; ?>
 
             </div>
 

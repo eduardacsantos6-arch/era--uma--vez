@@ -1,3 +1,9 @@
+<?php
+
+$nomeProjeto = "Era uma vez...";
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="pt-BR">
