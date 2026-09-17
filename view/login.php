@@ -1,3 +1,41 @@
+<?php
+
+session_start();
+
+require_once "../vendor/autoload.php";
+
+use Controller\UserController;
+
+$mensagem = "";
+$tipoMensagem = "";
+
+if($_SERVER["REQUEST_METHOD"] === "POST") {
+
+     $email = $_POST["email"] ?? "";
+     $senha = $_POST["senha"] ?? "";
+
+     $userController = new UserController();
+
+     if(empty($email) || empty($senha)) {
+
+        $mensagem = "Preencha todos os campos!";
+        $tipoMensagem = "erro";
+
+     } elseif ($userController->login($email, $senha)) {
+
+         header("Location: filmes.php");
+         exit;
+
+     } else {
+
+        $mensagem = "E-mail ou senha incorretos!";
+        $tipoMensagem = "erro";
+     }
+}
+
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="pt-BR">
@@ -11,6 +49,7 @@
     <title>Entrar | Era uma vez...</title>
 
     <link rel="stylesheet" href="/templates/global.css">
+
     <link rel="stylesheet" href="/templates/autenticacao.css">
 
 </head>
@@ -38,6 +77,7 @@
 
         </section>
 
+
         <section class="auth-formulario">
 
             <div class="formulario-conteudo">
@@ -54,7 +94,17 @@
                     Acesse sua conta para explorar os filmes.
                 </p>
 
-                <form action="#" method="POST">
+
+                <?php if (!empty($mensagem)): ?>
+
+                    <p class="mensagem <?= $tipoMensagem ?>">
+                        <?= htmlspecialchars($mensagem) ?>
+                    </p>
+
+                <?php endif; ?>
+
+
+                <form action="login.php" method="POST">
 
                     <div class="campo">
 
@@ -72,6 +122,7 @@
 
                     </div>
 
+
                     <div class="campo">
 
                         <label for="senha">
@@ -88,11 +139,16 @@
 
                     </div>
 
-                    <button type="submit" class="botao botao-form">
+
+                    <button
+                        type="submit"
+                        class="botao botao-form"
+                    >
                         Entrar
                     </button>
 
                 </form>
+
 
                 <p class="alternativa">
 
@@ -104,7 +160,11 @@
 
                 </p>
 
-                <a href="../index.php" class="voltar">
+
+                <a
+                    href="../index.php"
+                    class="voltar"
+                >
                     ← Voltar
                 </a>
 

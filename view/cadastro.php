@@ -1,3 +1,49 @@
+<?php
+
+require_once "../vendor/autoload.php";
+
+use Controller\UserController;
+
+$mensagem = "";
+$tipoMensagem = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $nome = $_POST["nome"] ?? "";
+    $email = $_POST["email"] ?? "";
+    $senha = $_POST["senha"] ?? "";
+    $confirmarSenha = $_POST["confirmar_senha"] ?? "";
+
+    $userController = new UserController();
+
+    if (!$userController->checkPasswordMatch($senha, $confirmarSenha)) {
+
+        $mensagem = "As senhas não são iguais!";
+        $tipoMensagem = "erro";
+
+    } elseif (!$userController->passwordValidation($senha)) {
+
+        $mensagem = "A senha deve ter entre 8 e 33 caracteres, com letra maiúscula, minúscula e número.";
+        $tipoMensagem = "erro";
+
+    } elseif ($userController->checkUserByEmail($email)) {
+
+        $mensagem = "Este e-mail já está cadastrado.";
+        $tipoMensagem = "erro";
+
+    } elseif ($userController->createUser($nome, $email, $senha)) {
+
+        $mensagem = "Cadastro realizado com sucesso!";
+        $tipoMensagem = "sucesso";
+
+    } else {
+
+        $mensagem = "Não foi possível realizar o cadastro.";
+        $tipoMensagem = "erro";
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 
@@ -59,12 +105,10 @@
 
 
                 <?php if (!empty($mensagem)): ?>
-
-                    <p class="mensagem-erro">
-                        <?= htmlspecialchars($mensagem) ?>
-                    </p>
-
-                <?php endif; ?>
+    <p class="mensagem <?= $tipoMensagem ?>">
+        <?= htmlspecialchars($mensagem) ?>
+    </p>
+<?php endif; ?>
 
 
                 <form action="cadastro.php" method="POST">
@@ -172,5 +216,4 @@
     </main>
 
 </body>
-
 </html>

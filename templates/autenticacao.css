@@ -361,3 +361,21 @@
         font-size: 34px;
     }
 }
+
+.mensagem {
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.mensagem.erro {
+    background-color: #f8e4e4;
+    color: #7a3030;
+}
+
+.mensagem.sucesso {
+    background-color: #e5f3e5;
+    color: #315c31;
+}

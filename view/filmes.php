@@ -1,12 +1,25 @@
 <?php
 
+session_start();
+
+require_once "../vendor/autoload.php";
+
+use Controller\UserController;
+
+$userController = new UserController();
+
+if (!$userController->isLoggedIn()) {
+    header("Location: login.php");
+    exit;
+}
+
 $filmes = [
 
     1 => [
         "titulo" => "Branca de Neve e os Sete Anões",
         "ano" => 1937,
         "categoria" => "Princesas",
-        "imagem" => "img/branca-neve.jpg",
+        "imagem" => "../img/branca-neve.jpg",
         "descricao" => "Uma jovem princesa precisa fugir da rainha má e encontra abrigo junto de sete anões."
     ],
 
@@ -14,7 +27,7 @@ $filmes = [
         "titulo" => "Pinóquio",
         "ano" => 1940,
         "categoria" => "Aventura",
-        "imagem" => "img/pinocchio.jpg",
+        "imagem" => "../img/pinocchio.jpg",
         "descricao" => "Um boneco de madeira sonha em se tornar um menino de verdade."
     ],
 
@@ -22,7 +35,7 @@ $filmes = [
         "titulo" => "Cinderela",
         "ano" => 1950,
         "categoria" => "Princesas",
-        "imagem" => "img/cinderela.jpg",
+        "imagem" => "../img/cinderela.jpg",
         "descricao" => "Uma jovem maltratada pela própria família encontra uma oportunidade para mudar sua história."
     ],
 
@@ -30,7 +43,7 @@ $filmes = [
         "titulo" => "Peter Pan",
         "ano" => 1953,
         "categoria" => "Aventura",
-        "imagem" => "img/peter-pan.jpg",
+        "imagem" => "../img/peter-pan.jpg",
         "descricao" => "Peter Pan leva Wendy e seus irmãos para uma aventura na Terra do Nunca."
     ],
 
@@ -38,7 +51,7 @@ $filmes = [
         "titulo" => "A Bela Adormecida",
         "ano" => 1959,
         "categoria" => "Princesas",
-        "imagem" => "img/bela-adormecida.jpg",
+        "imagem" => "../img/bela-adormecida.jpg",
         "descricao" => "A princesa Aurora é envolvida por uma maldição que muda completamente seu destino."
     ],
 
@@ -46,7 +59,7 @@ $filmes = [
         "titulo" => "A Pequena Sereia",
         "ano" => 1989,
         "categoria" => "Princesas",
-        "imagem" => "img/pequena-sereia.jpg",
+        "imagem" => "../img/pequena-sereia.jpg",
         "descricao" => "Ariel sonha em conhecer o mundo humano e decide explorar o desconhecido."
     ],
 
@@ -54,7 +67,7 @@ $filmes = [
         "titulo" => "A Bela e a Fera",
         "ano" => 1991,
         "categoria" => "Fantasia",
-        "imagem" => "img/bela-e-a-fera.jpg",
+        "imagem" => "../img/bela-e-a-fera.jpg",
         "descricao" => "Belle acaba vivendo em um castelo encantado e conhece uma fera que esconde uma história."
     ],
 
@@ -62,7 +75,7 @@ $filmes = [
         "titulo" => "Aladdin",
         "ano" => 1992,
         "categoria" => "Aventura",
-        "imagem" => "img/aladdin.jpg",
+        "imagem" => "../img/aladdin.jpg",
         "descricao" => "Um jovem encontra uma lâmpada mágica e descobre que sua vida pode mudar completamente."
     ],
 
@@ -70,7 +83,7 @@ $filmes = [
         "titulo" => "O Rei Leão",
         "ano" => 1994,
         "categoria" => "Animais",
-        "imagem" => "img/rei-leao.jpg",
+        "imagem" => "../img/rei-leao.jpg",
         "descricao" => "Simba precisa enfrentar desafios e descobrir seu lugar no ciclo da vida."
     ]
 
@@ -79,22 +92,29 @@ $filmes = [
 ?>
 
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Filmes | Era uma vez...</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
 
-    <link rel="stylesheet" href="templates/css/global.css">
-<link rel="stylesheet" href="templates/css/filmes.css">
+    <link rel="stylesheet" href="../templates/global.css">
+
+    <link rel="stylesheet" href="../templates/filmes.css">
 
 </head>
 
@@ -107,15 +127,18 @@ $filmes = [
             <span>✦</span>
 
             <div>
+
                 <strong>Era uma vez...</strong>
+
                 <small>FILMES CLÁSSICOS</small>
+
             </div>
 
         </div>
 
         <nav>
 
-            <a href="index.php">
+            <a href="../index.php">
                 Início
             </a>
 
@@ -170,13 +193,13 @@ $filmes = [
 
             <div class="cards catalogo-cards">
 
-                <?php foreach ($filmes as $id => $filme): ?>
+                <?php foreach ($filmes as $filme): ?>
 
                     <article class="card">
 
                         <img
                             src="<?= $filme["imagem"] ?>"
-                            alt="<?= $filme["titulo"] ?>"
+                            alt="<?= htmlspecialchars($filme["titulo"]) ?>"
                         >
 
                         <div class="card-conteudo">
@@ -186,16 +209,12 @@ $filmes = [
                             </span>
 
                             <h3>
-                                <?= $filme["titulo"] ?>
+                                <?= htmlspecialchars($filme["titulo"]) ?>
                             </h3>
 
                             <p>
-                                <?= $filme["descricao"] ?>
+                                <?= htmlspecialchars($filme["descricao"]) ?>
                             </p>
-
-                            <a href="filme.php?id=<?= $id ?>">
-                                Ver detalhes →
-                            </a>
 
                         </div>
 
@@ -231,4 +250,5 @@ $filmes = [
     </footer>
 
 </body>
+
 </html>
