@@ -2,6 +2,11 @@
    TELA DE ENTRADA
 ======================================== */
 
+.entrada-simbolo svg {
+    width: 32px;
+    height: 32px;
+}
+
 .pagina-entrada {
     min-height: 100vh;
 

@@ -1,5 +1,5 @@
 {
-    "name": "era-uma-vez/filmes-classicos",
+    "name": "eduarda/era-uma-vez",
     "description": "Catálogo de filmes clássicos desenvolvido em PHP",
     "type": "project",
     "autoload": {
@@ -11,7 +11,15 @@
             "Config/configuration.php"
         ]
     },
+    "authors": [
+        {
+            "name": "eduardacsantos6-arch",
+            "email": "eduarda.c.santos6@ba.estudante.senai.br"
+        }
+    ],
+    "minimum-stability": "dev",
     "require": {
-        "php": ">=8.2"
+        "php": ">=8.2",
+        "ext-mbstring": "*"
     }
 }

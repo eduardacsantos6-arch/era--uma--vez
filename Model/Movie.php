@@ -6,29 +6,20 @@ use Model\Connection;
 use PDO;
 use PDOException;
 
-class Movie
-{
+class Movie {
+
     private $db;
 
-    public function __construct()
-    {
+    public function __construct() {
+
         $this->db = Connection::getInstance();
     }
 
-    public function getAllMovies(): array
-    {
+    public function getAllMovies(): array {
+
         try {
 
-            $sql = "SELECT
-                        id,
-                        title,
-                        year,
-                        category,
-                        description,
-                        curiosity,
-                        image
-                    FROM movies
-                    ORDER BY year ASC";
+            $sql = "SELECT id, title, year, category, description, curiosity, image FROM movies ORDER BY year ASC";
 
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
@@ -37,12 +28,28 @@ class Movie
 
         } catch (PDOException $error) {
 
-            error_log(
-                "Erro ao buscar filmes: " .
-                $error->getMessage()
-            );
+            error_log("Erro ao buscar filmes: " . $error->getMessage());
 
             return [];
+        }
+    }
+
+    public function getMovieById(int $movieId): array|bool {
+        try {
+
+            $sql = "SELECT id, title, year, category, description, curiosity, image FROM movies WHERE id = :id";
+
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $movieId, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $error) {
+
+            error_log("Erro ao buscar filme: " . $error->getMessage());
+
+            return false;
         }
     }
 }

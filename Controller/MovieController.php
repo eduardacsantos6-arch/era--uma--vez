@@ -17,4 +17,9 @@ class MovieController {
         
         return $this->movieModel->getAllMovies();
     }
+
+    public function getMovieById(int $movieId): array|bool {
+
+       return $this->movieModel->getMovieById($movieId);
+    }
 }

@@ -1,0 +1,103 @@
+.criacao-historia {
+    max-width: 850px;
+    margin: 0 auto 70px;
+}
+
+.historia-formulario {
+    background-color: var(--branco);
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.historia-formulario h2 {
+    margin-bottom: 30px;
+    font-family: "Cinzel", serif;
+    color: var(--azul);
+}
+
+.campo {
+    margin-bottom: 22px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--azul);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d8d2c6;
+    border-radius: 8px;
+    background-color: var(--creme);
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    outline: none;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: var(--dourado);
+}
+
+.campo textarea {
+    resize: vertical;
+}
+
+.minhas-historias {
+    max-width: 1000px;
+    margin: 0 auto 80px;
+}
+
+.historias-lista {
+    display: grid;
+    gap: 20px;
+}
+
+.historia-card {
+    padding: 30px;
+    background-color: var(--branco);
+    border-radius: 12px;
+}
+
+.historia-card h3 {
+    margin: 15px 0;
+    font-family: "Cinzel", serif;
+    color: var(--azul);
+}
+
+.historia-card p {
+    line-height: 1.8;
+    color: var(--texto);
+    white-space: normal;
+}
+
+.sem-historias {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--creme-escuro);
+    border-radius: 12px;
+}
+
+.sem-historias h3 {
+    margin-bottom: 10px;
+    font-family: "Cinzel", serif;
+    color: var(--azul);
+}
+
+.sem-historias p {
+    color: var(--texto-claro);
+}
+
+@media (max-width: 700px) {
+
+    .historia-formulario {
+        padding: 25px;
+    }
+
+}
